@@ -2,7 +2,7 @@ FROM python:3.9.7-buster
 ARG DEBIAN_FRONTEND=noninteractive
 
 # パッケージの追加とタイムゾーンの設定
-# 必要に応じてインストールするパッケージを追加してください
+# 必要に応じてインストールするパッケージを追加
 RUN apt-get update && apt-get install -y \
     tzdata \
 &&  ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
@@ -25,8 +25,7 @@ RUN python3 -m pip install --upgrade pip \
     import-ipynb
 
 # 基本パッケージ
-# Pythonでよく利用する基本的なパッケージです
-# JupyterLabの動作には影響しないので、必要に応じてカスタマイズしてください
+# Pythonでよく利用する基本的なパッケージ
 RUN pip install --no-cache-dir \
     numpy \
     pandas \
@@ -44,7 +43,7 @@ RUN pip install --no-cache-dir \
     opencv-python
 
 # 追加パッケージ（必要に応じて）
-# 各環境に特化したパッケージがある場合、この部分に追加します
+# 各環境に特化したパッケージがある場合、この部分に追加
 RUN pip install --no-cache-dir \
     pydeps \
     graphviz \
